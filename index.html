@@ -3,58 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Daily Outfit — Lazada Style</title>
+  <title>Daily Outfit — Ala Tokopedia</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hz">
-    <div class="brand">
-      <img src="images/lazada.png" alt="Daily Outfit" class="logo" />
-      <div class="btxt">
-        <h1>DAILY OUTFIT</h1>
-        <p>Knit & basic wear · update mingguan · tukar size mudah</p>
-      </div>
+  <!-- Header toko -->
+  <header class="store-card">
+    <img class="avatar" src="images/toko.jpg" alt="Daily Outfit" />
+    <div class="store-info">
+      <h1 class="store-name">DAILY OUTFIT</h1>
+      <p class="store-sub">Knit & basic wear · update tiap minggu · garansi tukar size</p>
     </div>
-
-    <div class="controls">
-      <div class="search">
-        <input id="q" type="search" placeholder="Cari produk / nomor…" autocomplete="off" />
-      </div>
-      <select id="sort" class="sort">
-        <option value="latest">Terbaru (ID ↓)</option>
-        <option value="price-asc">Harga termurah</option>
-        <option value="price-desc">Harga termahal</option>
-        <option value="sold-desc">Terlaris</option>
-      </select>
-    </div>
-
-    <div class="hint">Tap kartu atau tombol “Beli Sekarang” untuk buka link produk.</div>
   </header>
 
-  <main>
-    <div id="grid" class="products"></div>
+  <!-- Controls -->
+  <section class="controls">
+    <input id="q" type="search" placeholder="Cari produk / nomor..." autocomplete="off" />
+    <select id="sort">
+      <option value="latest">Terbaru (ID ↓)</option>
+      <option value="price-asc">Harga termurah</option>
+      <option value="price-desc">Harga termahal</option>
+      <option value="sold-desc">Terlaris</option>
+    </select>
+  </section>
 
-    <template id="cardTpl">
-      <a class="card" href="#" target="_blank" rel="noopener">
-        <span class="disc">-31%</span>
-        <div class="imgWrap">
-          <img src="" alt="" />
+  <!-- Tips -->
+  <div class="tip">Tap gambar atau tombol “Beli Sekarang” untuk buka link produk.</div>
+
+  <!-- Grid produk (2 kolom) -->
+  <main id="grid" class="products"></main>
+
+  <!-- Template kartu -->
+  <template id="cardTpl">
+    <a class="card" target="_blank" rel="noopener">
+      <span class="disc"></span>
+      <div class="thumb skeleton">
+        <img loading="lazy" alt="" />
+      </div>
+
+      <div class="meta">
+        <span class="badge">Gratis Ongkir</span>
+
+        <h3 class="name"></h3>
+
+        <div class="price">
+          <span class="now"></span>
+          <span class="cut"></span>
         </div>
-        <div class="info">
-          <h3 class="name"></h3>
-          <div class="price">
-            <span class="now"></span>
-            <span class="cut"></span>
-          </div>
-          <div class="meta">
-            <span class="ship">Gratis Ongkir</span>
-            <span class="sold"></span>
-          </div>
-          <button class="btn">Beli Sekarang</button>
-        </div>
-      </a>
-    </template>
-  </main>
+
+        <div class="sold"></div>
+
+        <button class="btn">Beli Sekarang</button>
+      </div>
+    </a>
+  </template>
 
   <script src="app.js" defer></script>
 </body>
